@@ -39,4 +39,40 @@ public class PersonClassTest {
         // testing not null;
         assertNotNull(fakePersonTest);
     }
+
+    @Test
+    public void becomeOlderTest(){
+        Faker fake = new Faker();
+
+        Person fakePerson = new Person(fake.name().firstName(), fake.name().lastName(),
+                fake.number().numberBetween(1, 15));
+        int originalAge = fakePerson.getAge();
+        assertEquals(originalAge, fakePerson.getAge());
+        fakePerson.becomeOlder();
+        fakePerson.becomeOlder();
+        fakePerson.becomeOlder();
+        int newAge = originalAge + (5 * 3);
+        assertEquals(newAge, fakePerson.getAge());
+    }
+
+    @Test
+    public void askIfVampireTest(){
+        Faker fake = new Faker();
+
+        Person fakeVampire = new Person(fake.name().firstName(), fake.name().lastName(),
+                fake.number().numberBetween(150, 200));
+        fakeVampire.becomeOlder();
+        assertEquals("This person is a vampire!", fakeVampire.askIfVampire());
+    }
+
+    @Test
+    public void killVampireTest(){
+        Faker fake = new Faker();
+
+        Person fakeVampire = new Person(fake.name().firstName(), fake.name().lastName(),
+                fake.number().numberBetween(150, 200));
+        fakeVampire.becomeOlder();
+        fakeVampire.killVampire();
+        assertEquals(0, fakeVampire.getAge());
+    }
 }

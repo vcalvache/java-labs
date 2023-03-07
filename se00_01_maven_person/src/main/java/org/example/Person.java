@@ -12,11 +12,17 @@ public class Person {
     private String lastName;
     private int age;
 
-    private boolean isVampire;
+    private boolean isVampire = false;
 
     public Person (String firstName, String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public Person (String firstName, String lastName, int age){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
     }
 
     public Person withFirstName(String firstName){
@@ -29,7 +35,6 @@ public class Person {
 
     public void becomeOlder(){
         this.age += 5;
-
         if (this.age >= 138){
             this.isVampire = true;
         }
@@ -43,7 +48,7 @@ public class Person {
         }
     }
 
-    public void killVampire(Person person){
+    public void killVampire(){
         if (this.isVampire == true){
             this.age = 0;
         }

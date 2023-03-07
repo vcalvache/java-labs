@@ -2,8 +2,9 @@ package org.example;
 
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 public class CarClassTest {
 
     @Test
@@ -37,5 +38,37 @@ public class CarClassTest {
 
         // testing not null;
         assertNotNull(fakeCar);
+    }
+
+    @Test
+    public void getInTheCarTest() {
+
+        // Creating a new person object and passing all parameters
+        Car fakeCar = new Car(4, 3, "Red");
+
+        assertEquals(0, fakeCar.getPassengers());
+        fakeCar.getInTheCar();
+        assertEquals(1, fakeCar.getPassengers());
+        fakeCar.getInTheCar();
+        assertEquals(2, fakeCar.getPassengers());
+        fakeCar.getInTheCar();
+        assertEquals(3, fakeCar.getPassengers());
+        fakeCar.getInTheCar();
+        assertEquals(4, fakeCar.getPassengers());
+        fakeCar.getInTheCar();
+        assertNotEquals(5, fakeCar.getPassengers());
+
+    }
+
+    @Test
+    public void startTheCarTest(){
+        Car fakeCar = new Car(4, 3, "Red");
+
+        for (int i = 0; i < fakeCar.getSeats(); i++){
+            fakeCar.getInTheCar();
+        }
+
+        String isTheCarReady = fakeCar.startTheCar();
+        assertEquals(isTheCarReady, fakeCar.startTheCar());
     }
 }
