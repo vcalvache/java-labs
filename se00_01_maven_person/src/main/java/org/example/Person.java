@@ -26,14 +26,17 @@ public class Person {
     }
 
     public Person withFirstName(String firstName){
+        // return new Person only with firstName
         return new Person(firstName, lastName);
     }
 
     public Person witLastName(String lastName){
+        // return new Person only with lastName
         return new Person(firstName, lastName);
     }
 
     public void becomeOlder(){
+        // increments the abe by 5 and turns into vampire if age is 138 or more
         this.age += 5;
         if (this.age >= 138){
             this.isVampire = true;
@@ -41,7 +44,8 @@ public class Person {
     }
 
     public String askIfVampire(){
-        if (this.isVampire == true){
+        // checks if is a vampire
+        if (this.isVampire){
             return "This person is a vampire!";
         } else {
             return "This is not a vampire";
@@ -49,7 +53,8 @@ public class Person {
     }
 
     public void killVampire(){
-        if (this.isVampire == true){
+        // if vampire kills vampire.
+        if (this.isVampire){
             this.age = 0;
         }
     }

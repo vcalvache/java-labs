@@ -11,7 +11,6 @@ public class Car {
     private int seats;
     private int doors;
     private String color;
-
     private int passengers;
 
     public Car(int seats, int doors, String color) {
@@ -22,12 +21,14 @@ public class Car {
     }
 
     public void getInTheCar() {
+        // Enters a passenger if there are seats available
         if (passengers < seats) {
             this.passengers++;
         }
     }
 
     public String startTheCar(){
+        // checks if the car is full and allows to drive
         if (passengers == seats){
             return "Let's drive!";
         } else {

@@ -46,6 +46,7 @@ public class CarClassTest {
         // Creating a new person object and passing all parameters
         Car fakeCar = new Car(4, 3, "Red");
 
+        // checks value every getInCar() call
         assertEquals(0, fakeCar.getPassengers());
         fakeCar.getInTheCar();
         assertEquals(1, fakeCar.getPassengers());
@@ -56,6 +57,7 @@ public class CarClassTest {
         fakeCar.getInTheCar();
         assertEquals(4, fakeCar.getPassengers());
         fakeCar.getInTheCar();
+        // checks if has added more than the available seats
         assertNotEquals(5, fakeCar.getPassengers());
 
     }
@@ -64,11 +66,14 @@ public class CarClassTest {
     public void startTheCarTest(){
         Car fakeCar = new Car(4, 3, "Red");
 
+        // enters people until car is full
         for (int i = 0; i < fakeCar.getSeats(); i++){
             fakeCar.getInTheCar();
         }
 
+        // stores value with car ready
         String isTheCarReady = fakeCar.startTheCar();
+        // asserts if car is ready or not
         assertEquals(isTheCarReady, fakeCar.startTheCar());
     }
 }

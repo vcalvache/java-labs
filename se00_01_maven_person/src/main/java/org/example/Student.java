@@ -19,4 +19,14 @@ public class Student extends Person{
         this.car = new Car();
         this.books = new ArrayList<>();
     }
+
+    public void changesUniversity(String university){
+        // changes student university
+        this.university = university;
+    }
+
+    public void buyBook(Book book){
+        // add a new book to student's bookList
+        this.books.add(book);
+    }
 }

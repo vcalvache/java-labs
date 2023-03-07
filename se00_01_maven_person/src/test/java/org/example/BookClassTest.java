@@ -50,4 +50,36 @@ public class BookClassTest {
         // testing not null;
         assertEquals(fakeAuthor.getBook(), fakeBook);
     }
+
+    @Test
+    public void readTBookTest(){
+        Faker faker = new Faker();
+
+        // creating fake book
+        Book fakeBook = new Book(faker.book().title(), "12345NB", faker.number().numberBetween(0, 500));
+
+        // getting original values
+        int initialReadPages = fakeBook.getReadPages();
+
+        // read 50 pages
+        fakeBook.readBook(50);
+
+        //comparing initial value +50 with actual read pages.
+        assertEquals((initialReadPages + 50), fakeBook.getReadPages());
+
+    }
+
+    @Test
+    public void finishedBookTest(){
+        Faker faker = new Faker();
+
+        // creating fake book
+        Book fakeBook = new Book(faker.book().title(), "12345NB", faker.number().numberBetween(0, 500));
+
+        // reading 600 pages
+        fakeBook.readBook(600);
+
+        // check the boolean value
+        assertEquals(true, fakeBook.finishedBook());
+    }
 }
