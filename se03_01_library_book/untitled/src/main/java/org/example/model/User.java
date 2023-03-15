@@ -3,10 +3,12 @@ package org.example.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(callSuper=true, includeFieldNames=true)
 public class User extends Member{
     private static int index = 0;
     private int userID;
@@ -16,9 +18,5 @@ public class User extends Member{
         super(firstName, lastName, email, userName, password);
         index++;
         this.userID = index;
-    }
-
-    public int getUserID(){
-        return this.userID;
     }
 }
