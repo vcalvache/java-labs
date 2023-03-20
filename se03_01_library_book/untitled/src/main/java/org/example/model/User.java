@@ -15,7 +15,13 @@ public class User extends Member{
 
 
     public User(String firstName, String lastName, String email, String userName, String password){
-        super(firstName, lastName, email, userName, password);
+        super(firstName, lastName, email, userName,  password);
+        index++;
+        this.userID = index;
+    }
+
+    public User(String firstName, String lastName, String email){
+        super(firstName, lastName, email);
         index++;
         this.userID = index;
     }
